@@ -92,6 +92,5 @@ ButtonComponent.propTypes = {
         if(!props.icon && !props.children) {
             return new Error("The children prop is required!")
         }
-        return null
     }
 }
