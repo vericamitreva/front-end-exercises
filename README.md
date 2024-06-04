@@ -6,6 +6,8 @@ This repository contains the solutions for the tasks provided. For now only the 
 
 - JavaScript
 - React.js
+- HTML
+- CSS
 
 ## Getting Started
 

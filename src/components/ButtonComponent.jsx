@@ -19,7 +19,18 @@ import { Button } from "antd"
  * </ButtonComponent>
  */
 
-export default function ButtonComponent({ type, size, color, disabled, loading, icon, iconPosition, onClick, children, ...props }) {
+export default function ButtonComponent({
+    type = "default",
+    size = "default",
+    color = "",
+    disabled = false,
+    loading = false,
+    icon,
+    iconPosition = "left",
+    onClick = () => {},
+    children,
+    ...props
+ }) {
 
     function buttonType(type) {
         switch (type) {
@@ -77,15 +88,10 @@ ButtonComponent.propTypes = {
     loading: PropTypes.bool,
     size: PropTypes.oneOf(["small", "medium", "large"]),
     color: PropTypes.string,
-    children: PropTypes.node.isRequired
-}
-
-ButtonComponent.defaultProps = {
-    type: "default",
-    size: "default",
-    color: "",
-    iconPosition: "left",
-    disabled: false,
-    loading: false,
-    onClick: () => {}
+    children: function(props) {
+        if(!props.icon && !props.children) {
+            return new Error("The children prop is required!")
+        }
+        return null
+    }
 }
