@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import { Button } from "antd"
+import "./buttonComponent.css"
 
 /**
  * The ButtonComponent is a reusable button component that is built using the Ant Design library. It supports various customization options through props.
@@ -73,7 +74,7 @@ export default function ButtonComponent({
             onClick={onClick}
             {...props}
         >
-            {icon}
+            {icon && (<span className={`button-icon ${size}`}>{icon}</span>)}
             {children}
         </Button>
     )

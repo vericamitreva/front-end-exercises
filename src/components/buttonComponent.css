@@ -1,0 +1,16 @@
+.button-icon {
+    line-height: 0;
+}
+
+.button-icon.large{
+    transform: scale(100%);
+}
+
+.button-icon.medium {
+    transform: scale(90%);
+}
+
+.button-icon.small {
+    transform: scale(80%);
+}
+
