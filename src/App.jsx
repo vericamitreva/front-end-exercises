@@ -21,19 +21,6 @@ function App() {
     setIsModalOpen((prev) => (!prev))
   }
 
-  const successButton = {
-    type: "filled",
-    size: "medium",
-    children: "Confirm"
-  }
-
-  const discardButton = {
-    type: "outlined",
-    size: "medium",
-    color: "white",
-    children: "Discard"
-  }
-
   return (
     <>
       <ButtonComponent type="filled" onClick={handleModalOpening}>
@@ -43,16 +30,20 @@ function App() {
         isOpen={isModalOpen} 
         onClose={handleModalClosing} 
         onConfirm={handleConfirm}  
-        backdropClose={false} 
-        footer={
-          <>
-            {successButton && <ButtonComponent {...successButton} onClick={handleConfirm} />}
-            {discardButton && <ButtonComponent {...discardButton} onClick={handleModalClosing} />}
-          </>
-        } 
-        header={"Header"} 
-        discardButton={discardButton} 
-        successButton={successButton}
+        backdropClose={false}
+        successButton={{
+          type: "filled",
+          size: "medium",
+          children: "Confirm"
+        }}
+        discardButton={{
+          type: "outlined",
+          size: "medium",
+          color: "white",
+          children: "Discard"
+        }}
+        footerContent={"Footer"} 
+        headerContent={"Header"} 
       >
         Modal is open..
       </ModalComponent>
