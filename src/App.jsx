@@ -5,6 +5,7 @@ import { Col, Row } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import { useState } from 'react'
 import ModalComponent from './components/ModalComponent/ModalComponent.jsx'
+import CardComponent from './components/CardComponent/CardComponent.jsx'
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -21,27 +22,78 @@ function App() {
     setIsModalOpen((prev) => (!prev))
   }
 
+  function handleClick() {
+    alert("Card is clicked!")
+  }
+
+  const successButton = {
+    type: "filled",
+    size: "medium",
+    children: "Confirm",
+  }
+
+  const discardButton = {
+    type: "outlined",
+    size: "medium",
+    color: "white",
+    children: "Discard",
+  }
+
+  const badgesStyle = {
+    New: {
+      backgroundColor: "#87d068",
+      color: "white",
+      bordered: true
+    },
+    Hot: {
+      backgroundColor: "red",
+      color: "white",
+      bordered: false
+    },
+    Sale: {
+      backgroundColor: "magenta",
+      color: "white",
+      bordered: false
+    }
+  }
+
+  const style = { backgroundColor: "#add8e6", height: "100%"}
+
   return (
     <>
-      <ButtonComponent type="filled" onClick={handleModalOpening}>
+    <Row>
+      <CardComponent 
+        header="Header" 
+        footer="Footer" 
+        style={style} 
+        className="card-component" 
+        collapsible={true} 
+        clickable={true} 
+        flipOnHover={false}
+        liveContent={true}
+        refreshInterval={6000}
+        badges={["New", "Hot", "Sale"]}
+        badgesStyle={badgesStyle}
+        onClick={handleClick}
+        backContent="Back Content"
+      >
+        Card content
+      </CardComponent>
+    </Row>
+    <Row>
+      <ButtonComponent type="filled" onClick={handleModalOpening} style={{marginBlock: "20px"}}>
         Open Modal
       </ButtonComponent>
+    </Row>
       <ModalComponent 
         isOpen={isModalOpen} 
         onClose={handleModalClosing} 
         onConfirm={handleConfirm}  
         backdropClose={false}
-        successButton={{
-          type: "filled",
-          size: "medium",
-          children: "Confirm"
-        }}
-        discardButton={{
-          type: "outlined",
-          size: "medium",
-          color: "white",
-          children: "Discard"
-        }}
+        successButton={successButton}
+        discardButton={discardButton}
+        position="right"
+        buttonsReverse={true}
         footerContent={"Footer"} 
         headerContent={"Header"} 
       >

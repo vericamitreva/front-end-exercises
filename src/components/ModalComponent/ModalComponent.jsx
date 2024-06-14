@@ -1,5 +1,5 @@
 import styles from "./modalComponent.module.css"
-import { Modal } from "antd"
+import { Modal, Row } from "antd"
 import PropTypes from "prop-types"
 import ButtonComponent from "../ButtonComponent/ButtonComponent.jsx"
 
@@ -47,10 +47,25 @@ export default function ModalComponent({
     footerContent="",
     successButton,
     discardButton,
+    position="",
+    buttonsReverse=false,
     backdropClose=true,
     children,
     ...props
 }) {
+
+    function buttonsPosition(position) {
+        switch (position) {
+            case "left":
+                return "start";
+            case "center":
+                return "center";
+            case "right":
+                return "end";
+            default:
+                return "center"
+        }
+    }
 
     return (
         <>
@@ -64,9 +79,11 @@ export default function ModalComponent({
                 {...props}
             >
                 {children}
-                <div className={styles.content}>
-                    {successButton && <ButtonComponent {...successButton} onClick={onConfirm} />}
-                    {discardButton && <ButtonComponent {...discardButton} onClick={onClose} />}
+                <div className={`${styles.content} ${buttonsReverse ? styles.reverse : ''}`}>
+                    <Row gutter={[20,5]} justify={buttonsPosition(position)} align="middle">
+                        {successButton && <ButtonComponent {...successButton} onClick={onConfirm} />}
+                        {discardButton && <ButtonComponent {...discardButton} onClick={onClose} />}
+                    </Row>
                 </div>
             </Modal>
         </>
