@@ -1,0 +1,42 @@
+.badgeContainer {
+    position: absolute;
+    z-index: 1;
+}
+
+.badge {
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.default {
+    top: 0px;
+    left: 0px; 
+}
+
+
+.top-left {
+    top: 0px;
+    left: 0px;
+}
+
+.top {
+    top: 0;
+}
+
+.top-right {
+    top: 0px;
+    right: 0px;
+}
+
+.bottom-right {
+    bottom: 0px;
+    right: 0px;
+}
+
+.top-center {
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}

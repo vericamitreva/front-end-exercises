@@ -40,6 +40,13 @@
     justify-content: center;
 }
 
+.childrenContainer {
+    position: relative;
+    padding: 5%;
+}
+
 .footer {
-    margin-bottom: -20px;
+    position: absolute;
+    bottom: 2px;
+    left: 10px;
 }

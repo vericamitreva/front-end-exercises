@@ -4,6 +4,7 @@ import styles from "./cardComponent.module.css"
 import ButtonComponent from "../ButtonComponent/ButtonComponent"
 import { useEffect, useState } from "react"
 import { DownOutlined, UpOutlined } from "@ant-design/icons"
+import BadgeComponent from "./BadgeComponent/BadgeComponent"
 
 /**
  * The CardComponent is a reusable card component that is built using the Ant Design library. It supports various customization options through props.
@@ -90,14 +91,16 @@ export default function CardComponent({
         <div className={styles.card}>
             <div className={styles.cardFront}>
             <Card title={header} className={className} style={style} {...props}>
-                <Row className={styles.badges}>
                     {badges.map((badge, index) => (
-                        <Tag key={index} style={badgesStyle[badge]}>
-                            {badge}
-                        </Tag>
+                        <BadgeComponent
+                            key={index}
+                            position={badge.position}
+                            type={badge.type}
+                            content={badge.content}
+                            color={badge.color}
+                        />
                     ))}
-                </Row>
-                <Row>
+                <Row className={styles.childrenContainer}>
                     {children}
                 </Row>
                 {isCollapsed ? (
@@ -117,7 +120,7 @@ export default function CardComponent({
                 )}
             </Card>
             </div>
-            {flipOnHover && backContent && (
+            {flipOnHover && (
             <div className={styles.cardBack}>
                 <Card title={header} className={className} style={style} {...props}>
                 {backContent}
@@ -141,7 +144,7 @@ CardComponent.propTypes = {
     backContent: PropTypes.node,
     liveContent: PropTypes.bool,
     refreshInterval: PropTypes.number,
-    badges: PropTypes.arrayOf(PropTypes.string),
+    badges: PropTypes.array,
     badgesStyle: PropTypes.object,
     children: PropTypes.node.isRequired,
 }

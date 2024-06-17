@@ -6,6 +6,7 @@ import { SearchOutlined } from '@ant-design/icons'
 import { useState } from 'react'
 import ModalComponent from './components/ModalComponent/ModalComponent.jsx'
 import CardComponent from './components/CardComponent/CardComponent.jsx'
+import cardData from "./assets/data/data.js"
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -61,6 +62,28 @@ function App() {
 
   return (
     <>
+    <Row gutter={20} wrap={false}>
+      {cardData.map((card,index) => (
+        <Col key={index} flex="1">
+          <CardComponent 
+            header={card.header}
+            footer={card.footer}
+            style={{ ...card.style, height: '100%' }}
+            className={card.className}
+            collapsible={card.collapsible}
+            clickable={true}
+            onClick={card.onClick}
+            flipOnHover={true}
+            liveContent={true}
+            refreshInterval={card.refreshInterval}
+            backContent={card.backContent}
+            badges={card.badges}
+          >
+            {card.children}
+          </CardComponent>
+        </Col>
+      ))}
+    </Row>
     <Row>
       <CardComponent 
         header="Header" 
@@ -69,10 +92,10 @@ function App() {
         className="card-component" 
         collapsible={true} 
         clickable={true} 
-        flipOnHover={false}
+        flipOnHover={true}
         liveContent={true}
         refreshInterval={6000}
-        badges={["New", "Hot", "Sale"]}
+        badges={[]}
         badgesStyle={badgesStyle}
         onClick={handleClick}
         backContent="Back Content"
