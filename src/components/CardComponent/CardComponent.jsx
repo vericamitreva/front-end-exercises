@@ -85,7 +85,7 @@ export default function CardComponent({
 
     return (
         <div
-            className={`${styles.cardContainer} ${flipOnHover ? styles.flip : ""} ${clickable ? styles.clickable : ""}`}
+            className={`${styles.cardContainer} ${(flipOnHover && backContent) ? styles.flip : ""} ${clickable ? styles.clickable : ""}`}
             onClick={handleClick}
         >
         <div className={styles.card}>

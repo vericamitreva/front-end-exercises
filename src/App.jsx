@@ -71,11 +71,11 @@ function App() {
             style={{ ...card.style, height: '100%' }}
             className={card.className}
             collapsible={card.collapsible}
-            clickable={true}
+            clickable={!!card.onClick}
             onClick={card.onClick}
-            flipOnHover={true}
-            liveContent={true}
+            flipOnHover={!!card.backContent}
             refreshInterval={card.refreshInterval}
+            liveContent={!!card.refreshInterval}
             backContent={card.backContent}
             badges={card.badges}
           >
