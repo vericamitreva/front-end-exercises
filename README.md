@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2cc0410d-3e2a-4161-831d-0f52e555d221/deploy-status)](https://app.netlify.com/sites/front-end-exercises/deploys)
+
 # Front-End Exercises
 
 This repository contains the solutions for the tasks provided. For now only the solution for the first task, creating a Reusable Button Component.
