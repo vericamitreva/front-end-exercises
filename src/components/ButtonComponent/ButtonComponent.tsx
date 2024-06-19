@@ -27,7 +27,7 @@ interface ButtonComponentProps {
     disabled?: boolean
     loading?: boolean
     icon?: ReactElement,
-    iconPosition: "left" | "right"
+    iconPosition?: "left" | "right"
     onClick?: () => void
     children?: ReactNode
     [key: string]: any

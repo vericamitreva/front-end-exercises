@@ -1,7 +1,7 @@
-import styles from "./ModalComponent.module.css"
+import React, { FC, ReactNode } from "react"
 import { Modal, Row } from "antd"
-import PropTypes from "prop-types"
 import ButtonComponent from "../ButtonComponent/ButtonComponent.jsx"
+import styles from "./ModalComponent.module.css"
 
 /**
  * The ModalComponent is a reusable modal component that is built using the Ant Design library. It supports various customization options through props.
@@ -39,7 +39,21 @@ import ButtonComponent from "../ButtonComponent/ButtonComponent.jsx"
       </ModalComponent>
  */
 
-export default function ModalComponent({
+interface ModalComponentProps {
+    isOpen: boolean,
+    onClose: () => void,
+    onConfirm: () => void,
+    headerContent?: ReactNode,
+    footerContent?: ReactNode,
+    successButton?: object,
+    discardButton?: object,
+    buttonsReverse: boolean,
+    position: "left" | "center" | "right",
+    backdropClose?: boolean,
+    children: ReactNode
+}
+
+const ModalComponent: FC<ModalComponentProps> = ({
     isOpen, 
     onClose, 
     onConfirm, 
@@ -52,9 +66,9 @@ export default function ModalComponent({
     backdropClose=true,
     children,
     ...props
-}) {
+}) => {
 
-    function buttonsPosition(position) {
+    const buttonsPosition = (position:string) => {
         switch (position) {
             case "left":
                 return "start";
@@ -90,15 +104,4 @@ export default function ModalComponent({
     )
 }
 
-ModalComponent.propTypes = {
-    isOpen: PropTypes.bool.isRequired,
-    onClose: PropTypes.func.isRequired,
-    onConfirm: PropTypes.func.isRequired,
-    headerContent: PropTypes.node,
-    footerContent: PropTypes.node,
-    successButton: PropTypes.object,
-    discardButton: PropTypes.object,
-    backdropClose: PropTypes.bool,
-    children: PropTypes.node.isRequired
-
-}
+export default ModalComponent
