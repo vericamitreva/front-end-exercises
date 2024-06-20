@@ -28,7 +28,7 @@ interface ButtonComponentProps {
     loading?: boolean
     icon?: ReactElement,
     iconPosition?: "left" | "right"
-    onClick?: () => void
+    onClick?: (event: React.MouseEvent<HTMLElement>) => void
     children?: ReactNode
     [key: string]: any
 }

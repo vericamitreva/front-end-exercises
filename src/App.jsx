@@ -4,7 +4,7 @@ import { Col, Row } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import { useState } from 'react'
 import ModalComponent from './components/ModalComponent/ModalComponent.tsx'
-import CardComponent from './components/CardComponent/CardComponent.jsx'
+import CardComponent from './components/CardComponent/CardComponent.tsx'
 import cardData from "./assets/data/data.js"
 import ButtonComponent from './components/ButtonComponent/ButtonComponent.tsx'
 
