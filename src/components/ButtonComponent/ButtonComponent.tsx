@@ -1,6 +1,7 @@
 import { Button } from "antd"
 import "./buttonComponent.css"
-import React, { FC, ReactElement, ReactNode } from "react"
+import React, { FC } from "react"
+import { ButtonComponentProps } from "../../assets/types"
 
 /**
  * The ButtonComponent is a reusable button component that is built using the Ant Design library. It supports various customization options through props.
@@ -20,18 +21,6 @@ import React, { FC, ReactElement, ReactNode } from "react"
  * </ButtonComponent>
  */
 
-interface ButtonComponentProps {
-    type?: "outlined" | "filled" | "icon"
-    size?: "small" | "medium" | "large"
-    color?: string
-    disabled?: boolean
-    loading?: boolean
-    icon?: ReactElement,
-    iconPosition?: "left" | "right"
-    onClick?: (event: React.MouseEvent<HTMLElement>) => void
-    children?: ReactNode
-    [key: string]: any
-}
 
 const ButtonComponent: FC<ButtonComponentProps>  = ({
     type = "default",
