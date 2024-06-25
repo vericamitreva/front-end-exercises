@@ -1,14 +1,9 @@
 import React, { FC } from "react"
 import styles from "./badgeComponent.module.css"
+import { BadgeProps } from "../../../assets/types"
 
-interface BadgeComponentProps {
-    position?: "top-left" | "top" | "top-center" | "top-right" | "bottom-right"
-    type?: "filled" | "full" | "outlined"
-    content: string
-    color?: string
-}
 
-const BadgeComponent: FC<BadgeComponentProps> = ({ position="default", type="filled", content, color="blue" }) => {
+const BadgeComponent: FC<BadgeProps> = ({ position="default", type="filled", content, color="blue" }) => {
   return (
     <div className={`${styles.badgeContainer} ${styles[position]}`}>
         <div className={`${styles.badge}`} style={{

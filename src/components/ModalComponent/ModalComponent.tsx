@@ -1,7 +1,8 @@
 import React, { FC, ReactNode } from "react"
 import { Modal, Row } from "antd"
-import ButtonComponent from "../ButtonComponent/ButtonComponent.jsx"
+import ButtonComponent from "../ButtonComponent/ButtonComponent.jsx" 
 import styles from "./ModalComponent.module.css"
+import { ButtonProps, position } from "../../assets/types.js"
 
 /**
  * The ModalComponent is a reusable modal component that is built using the Ant Design library. It supports various customization options through props.
@@ -45,10 +46,10 @@ interface ModalComponentProps {
     onConfirm: () => void,
     headerContent?: ReactNode,
     footerContent?: ReactNode,
-    successButton?: object,
-    discardButton?: object,
+    successButton?: ButtonProps,
+    discardButton?: ButtonProps,
     buttonsReverse: boolean,
-    position: "left" | "center" | "right",
+    position: position,
     backdropClose?: boolean,
     children: ReactNode
 }
