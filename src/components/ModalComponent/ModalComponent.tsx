@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from "react"
 import { Modal, Row } from "antd"
 import ButtonComponent from "../ButtonComponent/ButtonComponent.jsx" 
-import styles from "./ModalComponent.module.css"
+import styles from "./modalComponent.module.css"
 import { ButtonProps, position } from "../../assets/types.js"
 
 /**
